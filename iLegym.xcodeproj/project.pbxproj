@@ -20,6 +20,16 @@
 		BFC0370F27DCD3030097C274 /* DailyActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0370E27DCD3030097C274 /* DailyActivitiesView.swift */; };
 		BFC0371127DCD3210097C274 /* RunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0371027DCD3210097C274 /* RunningView.swift */; };
 		BFC0371327DCD3FF0097C274 /* TapticSupports.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0371227DCD3FF0097C274 /* TapticSupports.swift */; };
+		BFC0371627DCD4FC0097C274 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0371527DCD4FC0097C274 /* HttpMethod.swift */; };
+		BFC0371727DCD4FC0097C274 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0371527DCD4FC0097C274 /* HttpMethod.swift */; };
+		BFC0371927DCD5460097C274 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0371827DCD5460097C274 /* NetworkReachability.swift */; };
+		BFC0371A27DCD5460097C274 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0371827DCD5460097C274 /* NetworkReachability.swift */; };
+		BFC0371D27DCD7560097C274 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0371C27DCD7560097C274 /* Error.swift */; };
+		BFC0371E27DCD7560097C274 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0371C27DCD7560097C274 /* Error.swift */; };
+		BFC0372027DCE3990097C274 /* LoginApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0371F27DCE3990097C274 /* LoginApi.swift */; };
+		BFC0372127DCE3990097C274 /* LoginApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0371F27DCE3990097C274 /* LoginApi.swift */; };
+		BFC0372327DCE45C0097C274 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0372227DCE45C0097C274 /* UserLogin.swift */; };
+		BFC0372427DCE45C0097C274 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0372227DCE45C0097C274 /* UserLogin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,6 +58,11 @@
 		BFC0370E27DCD3030097C274 /* DailyActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivitiesView.swift; sourceTree = "<group>"; };
 		BFC0371027DCD3210097C274 /* RunningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningView.swift; sourceTree = "<group>"; };
 		BFC0371227DCD3FF0097C274 /* TapticSupports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapticSupports.swift; sourceTree = "<group>"; };
+		BFC0371527DCD4FC0097C274 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		BFC0371827DCD5460097C274 /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
+		BFC0371C27DCD7560097C274 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		BFC0371F27DCE3990097C274 /* LoginApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApi.swift; sourceTree = "<group>"; };
+		BFC0372227DCE45C0097C274 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +86,8 @@
 		BFC036D927DCAE510097C274 = {
 			isa = PBXGroup;
 			children = (
+				BFC0371427DCD4E10097C274 /* HttpRequest */,
+				BFC0371B27DCD73D0097C274 /* Models */,
 				BFC0370627DCCE5D0097C274 /* Utilities */,
 				BFC036DE27DCAE510097C274 /* Shared */,
 				BFC0370127DCB5F50097C274 /* iOS */,
@@ -122,6 +139,7 @@
 			children = (
 				BFC0370727DCCFAA0097C274 /* DeviceRecognizer.swift */,
 				BFC0371227DCD3FF0097C274 /* TapticSupports.swift */,
+				BFC0371827DCD5460097C274 /* NetworkReachability.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -133,6 +151,24 @@
 				BFC0371027DCD3210097C274 /* RunningView.swift */,
 			);
 			path = HomeViews;
+			sourceTree = "<group>";
+		};
+		BFC0371427DCD4E10097C274 /* HttpRequest */ = {
+			isa = PBXGroup;
+			children = (
+				BFC0371527DCD4FC0097C274 /* HttpMethod.swift */,
+				BFC0371F27DCE3990097C274 /* LoginApi.swift */,
+			);
+			path = HttpRequest;
+			sourceTree = "<group>";
+		};
+		BFC0371B27DCD73D0097C274 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BFC0371C27DCD7560097C274 /* Error.swift */,
+				BFC0372227DCE45C0097C274 /* UserLogin.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,11 +294,16 @@
 				BFC036FE27DCAF190097C274 /* LoginView.swift in Sources */,
 				BFC0370927DCCFB40097C274 /* DeviceRecognizer.swift in Sources */,
 				BFC036F127DCAE530097C274 /* ContentView.swift in Sources */,
+				BFC0371D27DCD7560097C274 /* Error.swift in Sources */,
 				BFC036EF27DCAE530097C274 /* iLegymApp.swift in Sources */,
+				BFC0371627DCD4FC0097C274 /* HttpMethod.swift in Sources */,
+				BFC0372027DCE3990097C274 /* LoginApi.swift in Sources */,
+				BFC0372327DCE45C0097C274 /* UserLogin.swift in Sources */,
 				BFC0371327DCD3FF0097C274 /* TapticSupports.swift in Sources */,
 				BFC0370C27DCD27C0097C274 /* RootView.swift in Sources */,
 				BFC0371127DCD3210097C274 /* RunningView.swift in Sources */,
 				BFC0370F27DCD3030097C274 /* DailyActivitiesView.swift in Sources */,
+				BFC0371927DCD5460097C274 /* NetworkReachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,9 +311,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFC0371727DCD4FC0097C274 /* HttpMethod.swift in Sources */,
 				BFC036F227DCAE530097C274 /* ContentView.swift in Sources */,
+				BFC0372427DCE45C0097C274 /* UserLogin.swift in Sources */,
 				BFC0370327DCB6450097C274 /* LoginView_macOS.swift in Sources */,
 				BFC036F027DCAE530097C274 /* iLegymApp.swift in Sources */,
+				BFC0371E27DCD7560097C274 /* Error.swift in Sources */,
+				BFC0372127DCE3990097C274 /* LoginApi.swift in Sources */,
+				BFC0371A27DCD5460097C274 /* NetworkReachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
