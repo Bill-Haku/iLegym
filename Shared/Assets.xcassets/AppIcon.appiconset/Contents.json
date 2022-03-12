@@ -81,6 +81,7 @@
       "size" : "76x76"
     },
     {
+      "filename" : "iLegtm_icon.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
@@ -126,6 +127,7 @@
       "size" : "256x256"
     },
     {
+      "filename" : "iLegtm_icon_mac.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"

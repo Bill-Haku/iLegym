@@ -13,7 +13,26 @@
 		BFC036F227DCAE530097C274 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC036E027DCAE510097C274 /* ContentView.swift */; };
 		BFC036F327DCAE530097C274 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFC036E127DCAE530097C274 /* Assets.xcassets */; };
 		BFC036F427DCAE530097C274 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFC036E127DCAE530097C274 /* Assets.xcassets */; };
+		BFC036FE27DCAF190097C274 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC036FD27DCAF190097C274 /* LoginView.swift */; };
+		BFC0370327DCB6450097C274 /* LoginView_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0370227DCB6450097C274 /* LoginView_macOS.swift */; };
+		BFC0370927DCCFB40097C274 /* DeviceRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0370727DCCFAA0097C274 /* DeviceRecognizer.swift */; };
+		BFC0370C27DCD27C0097C274 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0370A27DCD2790097C274 /* RootView.swift */; };
+		BFC0370F27DCD3030097C274 /* DailyActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0370E27DCD3030097C274 /* DailyActivitiesView.swift */; };
+		BFC0371127DCD3210097C274 /* RunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0371027DCD3210097C274 /* RunningView.swift */; };
+		BFC0371327DCD3FF0097C274 /* TapticSupports.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0371227DCD3FF0097C274 /* TapticSupports.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BFC0370427DCCE020097C274 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BFC036DF27DCAE510097C274 /* iLegymApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLegymApp.swift; sourceTree = "<group>"; };
@@ -22,6 +41,13 @@
 		BFC036E627DCAE530097C274 /* iLegym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLegym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFC036EC27DCAE530097C274 /* iLegym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLegym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFC036EE27DCAE530097C274 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		BFC036FD27DCAF190097C274 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		BFC0370227DCB6450097C274 /* LoginView_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView_macOS.swift; sourceTree = "<group>"; };
+		BFC0370727DCCFAA0097C274 /* DeviceRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRecognizer.swift; sourceTree = "<group>"; };
+		BFC0370A27DCD2790097C274 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		BFC0370E27DCD3030097C274 /* DailyActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivitiesView.swift; sourceTree = "<group>"; };
+		BFC0371027DCD3210097C274 /* RunningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningView.swift; sourceTree = "<group>"; };
+		BFC0371227DCD3FF0097C274 /* TapticSupports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapticSupports.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +71,9 @@
 		BFC036D927DCAE510097C274 = {
 			isa = PBXGroup;
 			children = (
+				BFC0370627DCCE5D0097C274 /* Utilities */,
 				BFC036DE27DCAE510097C274 /* Shared */,
+				BFC0370127DCB5F50097C274 /* iOS */,
 				BFC036ED27DCAE530097C274 /* macOS */,
 				BFC036E727DCAE530097C274 /* Products */,
 			);
@@ -73,9 +101,38 @@
 		BFC036ED27DCAE530097C274 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				BFC0370227DCB6450097C274 /* LoginView_macOS.swift */,
 				BFC036EE27DCAE530097C274 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		BFC0370127DCB5F50097C274 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				BFC036FD27DCAF190097C274 /* LoginView.swift */,
+				BFC0370A27DCD2790097C274 /* RootView.swift */,
+				BFC0370D27DCD2890097C274 /* HomeViews */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		BFC0370627DCCE5D0097C274 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BFC0370727DCCFAA0097C274 /* DeviceRecognizer.swift */,
+				BFC0371227DCD3FF0097C274 /* TapticSupports.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BFC0370D27DCD2890097C274 /* HomeViews */ = {
+			isa = PBXGroup;
+			children = (
+				BFC0370E27DCD3030097C274 /* DailyActivitiesView.swift */,
+				BFC0371027DCD3210097C274 /* RunningView.swift */,
+			);
+			path = HomeViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -88,6 +145,8 @@
 				BFC036E227DCAE530097C274 /* Sources */,
 				BFC036E327DCAE530097C274 /* Frameworks */,
 				BFC036E427DCAE530097C274 /* Resources */,
+				BFC0370427DCCE020097C274 /* CopyFiles */,
+				BFC0370527DCCE0A0097C274 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -171,13 +230,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BFC0370527DCCE0A0097C274 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nxcrun agvtool next-version -all\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BFC036E227DCAE530097C274 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFC036FE27DCAF190097C274 /* LoginView.swift in Sources */,
+				BFC0370927DCCFB40097C274 /* DeviceRecognizer.swift in Sources */,
 				BFC036F127DCAE530097C274 /* ContentView.swift in Sources */,
 				BFC036EF27DCAE530097C274 /* iLegymApp.swift in Sources */,
+				BFC0371327DCD3FF0097C274 /* TapticSupports.swift in Sources */,
+				BFC0370C27DCD27C0097C274 /* RootView.swift in Sources */,
+				BFC0371127DCD3210097C274 /* RunningView.swift in Sources */,
+				BFC0370F27DCD3030097C274 /* DailyActivitiesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFC036F227DCAE530097C274 /* ContentView.swift in Sources */,
+				BFC0370327DCB6450097C274 /* LoginView_macOS.swift in Sources */,
 				BFC036F027DCAE530097C274 /* iLegymApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,7 +405,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -349,7 +435,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
