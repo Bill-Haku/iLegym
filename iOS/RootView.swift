@@ -32,6 +32,11 @@ struct RootView: View {
                 .tabItem {
                     Text("跑步")
                 }
+            SettingsView()
+                .tag(2)
+                .tabItem {
+                    Text("设置")
+                }
         }
     }
 }

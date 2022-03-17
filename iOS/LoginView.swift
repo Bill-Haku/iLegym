@@ -19,7 +19,6 @@ extension View {
 struct LoginView: View {
     @State var userName = ""
     @State var userPassword = ""
-    @State var isSheetPresented = false
     @Binding var hasLogined: Bool
 
     var body: some View {
@@ -61,7 +60,6 @@ struct LoginView: View {
                             hasLogined = true
                         }
                     }
-                    isSheetPresented.toggle()
                 }) {
                     Text("登录")
                         .fontWeight(.bold)
@@ -75,6 +73,19 @@ struct LoginView: View {
             }
             .onTapGesture {
                 self.hideKeyboard()
+            }
+            .onAppear() {
+                let defaultUserName = UserDefaults.standard.string(forKey: "username")
+                let defaultPassword = UserDefaults.standard.string(forKey: "password")
+                guard defaultPassword != nil, defaultUserName != nil else {
+                    return
+                }
+                API.Login.login(username: defaultUserName!, password: defaultPassword!) { loginData, errorInfo in
+                    if loginData != nil {
+                        UserDefaults.standard.setValue(loginData!.accessToken, forKey: "token")
+                        hasLogined = true
+                    }
+                }
             }
         }
     }

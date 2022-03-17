@@ -182,33 +182,6 @@ struct HttpMethod<T: Codable> {
                             }
                         }
                     }
-//                    else if
-//                        let data = data,
-//                        let response = response as? HTTPURLResponse,
-//                        response.statusCode == 200 {
-//                        DispatchQueue.main.async {
-//                            // json转模型，这里用泛型
-//                            let errorCode = try? JSONDecoder().decode(ErrorCode.self, from: data)
-//                            print(data)
-//                            print(errorCode ?? "ErrorCode nil")
-//                            if errorCode?.code != 0 {
-//                                // 不建议强制解码 好几次app崩溃报错都是在这里
-//                                do {
-//                                    let dataProcessed = try JSONDecoder().decode(T.self, from: data)
-//                                    completion(dataProcessed, errorCode?.message)
-//                                } catch {}
-//                            }
-//                            else if errorCode?.code == 0 {
-//                                do {
-//                                    let dataProcessed = try JSONDecoder().decode(T.self, from: data)
-//                                    print("decode success")
-//                                    completion(dataProcessed, errorCode?.message)
-//                                } catch {}
-//                            }
-//                        }
-//                    } else {
-//                        print("met undefined error")
-//                    }
                 }.resume()
             }
         }
