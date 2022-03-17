@@ -20,6 +20,7 @@ struct LoginView: View {
     @State var userName = ""
     @State var userPassword = ""
     @State var isSheetPresented = false
+    @Binding var hasLogined: Bool
 
     var body: some View {
         NavigationView {
@@ -52,10 +53,17 @@ struct LoginView: View {
                 Spacer().frame(width: 100, height: 60)
 
                 Button(action: {
-//                    onClick()
+                    API.Login.login(username: userName, password: userPassword) { loginData, errorInfo in
+                        if loginData != nil {
+                            UserDefaults.standard.setValue(loginData!.accessToken, forKey: "token")
+                            UserDefaults.standard.setValue(userName, forKey: "username")
+                            UserDefaults.standard.setValue(userPassword, forKey: "password")
+                            hasLogined = true
+                        }
+                    }
                     isSheetPresented.toggle()
                 }) {
-                    Text("Log in")
+                    Text("登录")
                         .fontWeight(.bold)
                         .bold()
                         .foregroundColor(.white)
@@ -66,15 +74,9 @@ struct LoginView: View {
                 Spacer()
             }
             .onTapGesture {
-                print("tap")
                 self.hideKeyboard()
             }
         }
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
-}

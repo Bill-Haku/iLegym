@@ -7,6 +7,12 @@
 
 import Foundation
 
+struct LoginData: Codable {
+    var code: Int
+    var message: String?
+    var data: UserLoginData?
+}
+
 struct UserLoginData: Codable {
     var id: String
     var uuasId: String?
@@ -18,7 +24,7 @@ struct UserLoginData: Codable {
     var schoolId: String
     var schoolName: String
     /// 学号
-    var organizationUserNumber: String
+//    var organizationUserNumber: String
     var nickName: String
     var realName: String
     var avatar: String?
@@ -31,12 +37,12 @@ struct UserLoginData: Codable {
     var year: Int
     var accountNumber: String
     var mobile: String
-    var authorities: [String]
+//    var authorities: [String?]
     var accessToken: String
     var tokenType: String
     var refreshToken: String
     var userId: String?
     var semesterId: String?
     var campusName: String?
-    var accessTokenExpires: String
+//    var accessTokenExpires: Int64
 }

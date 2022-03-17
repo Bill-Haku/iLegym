@@ -8,13 +8,13 @@
 import Foundation
 
 extension API {
-    struct login {
+    struct Login {
         /// 用户登录
         /// - Parameters:
         ///   - username: 用户名
         ///   - password: 用户密码
         ///   - completion: UserLogInData的数据
-        static func logIn (
+        static func login (
             username: String,
             password: String,
             completion: @escaping (
@@ -22,21 +22,24 @@ extension API {
                 _ errorType: String?
             ) -> ()
         ) {
-            /// 请求类别
-            let urlStr = "user/login"
-            /// 请求体，通过String的拓展加参数
-            let httpBody = ""
-                .addPara("username", username)
-                .addPara("password", password)
-            /// 请求
-            HttpMethod<UserLoginData>
+            // 请求类别
+            let urlStr = "authorization/user/manage/login"
+            // 请求体
+            var httpBody = [String: Any]()
+            httpBody.updateValue(username, forKey: "userName")
+            httpBody.updateValue(password, forKey: "password")
+            httpBody.updateValue(1, forKey: "entrance")
+            print(httpBody["password"]!)
+            // 请求
+            HttpMethod<LoginData>
                 .loginRequest(
                     .post,
                     urlStr,
                     httpBody
                 ) { userLoginData, errorType in
-                    /// 异步返回相应数据
-                    completion(userLoginData, errorType)
+                    print(userLoginData.data?.userId ?? "uid nil")
+                    // 异步返回相应数据
+                    completion(userLoginData.data, errorType)
                 }
         }
     }

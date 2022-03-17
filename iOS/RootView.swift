@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RootView: View {
+    @State var selection: Int = 0
     var index: Binding<Int> { Binding(
         get: { self.selection },
         set: {

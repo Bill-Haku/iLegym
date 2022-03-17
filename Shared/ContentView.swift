@@ -12,12 +12,17 @@ struct ContentView: View {
 
     var body: some View {
         ZStack  {
-            LoginView()
+            #if os(iOS)
+            LoginView(hasLogined: $hasLogined)
             if hasLogined {
-                
+                RootView()
+                    .animation(.default)
+                    .offset(y: (hasLogined && Device.deviceType == .iphone) ? 0 : 1.2 * WH.H)
             }
+            #else
+            LoginView()
+            #endif
         }
-
     }
 }
 

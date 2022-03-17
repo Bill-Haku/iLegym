@@ -9,7 +9,7 @@ import Foundation
 
 struct ErrorCode: Codable {
     var code: Int
-    var message: String
+    var message: String?
 }
 
 struct SessionCount: Codable {

@@ -24,7 +24,7 @@ struct HttpMethod<T: Codable> {
     static func commonRequest (
         _ method: Method,
         _ urlStr: String,
-        _ httpBody: String,
+        _ bodyJson: String,
         completion: @escaping(
             _ dataProcessed: T,
             _ errorType: String?
@@ -53,7 +53,8 @@ struct HttpMethod<T: Codable> {
                     request.httpMethod = "PUT"
                 }
                 // 转成数据
-                request.httpBody = httpBody.data(using: .utf8)
+                let jsonData = try? JSONSerialization.data(withJSONObject: bodyJson)
+                request.httpBody = jsonData
                 // 开始请求
                 URLSession.shared.dataTask(
                     with: request
@@ -98,12 +99,12 @@ struct HttpMethod<T: Codable> {
     /// - Parameters:
     ///   - method:Method, http方法的类型
     ///   - urlStr:String，url的字符串后缀，即request的类型
-    ///   - httpBody:String，包含所有请求参数
+    ///   - bodyJson:String，包含所有请求参数
     ///   - completion:异步返回处理好的data以及报错的类型
     static func loginRequest (
         _ method: Method,
         _ urlStr: String,
-        _ httpBody: String,
+        _ bodyJson: [String: Any],
         completion: @escaping(
             _ dataProcessed: T,
             _ errorType: String?
@@ -132,7 +133,9 @@ struct HttpMethod<T: Codable> {
                     request.httpMethod = "PUT"
                 }
                 // 转成数据
-                request.httpBody = httpBody.data(using: .utf8)
+                let jsonData = try? JSONSerialization.data(withJSONObject: bodyJson)
+                request.httpBody = jsonData
+                print("start request")
                 // 开始请求
                 URLSession.shared.dataTask(
                     with: request
@@ -140,14 +143,20 @@ struct HttpMethod<T: Codable> {
                     // 判断有没有错误（这里无论如何都不会抛因为是自己手动返回错误信息的）
                     print(error ?? "ErrorInfo nil")
                     if let error = error {
-                        print(
-                            "DataTask error in General HttpMethod: " +
-                            error.localizedDescription + "\n"
-                        )
-                    } else if
-                        let data = data,
-                        let response = response as? HTTPURLResponse,
-                        response.statusCode == 200 {
+                        print("DataTask error in General HttpMethod: " + error.localizedDescription)
+                    } else {
+                        guard let data = data else {
+                            print("found response data nil")
+                            return
+                        }
+                        guard let response = response as? HTTPURLResponse else {
+                            print("response error")
+                            return
+                        }
+                        guard response.statusCode == 200 else {
+                            print("response error, code: \(response.statusCode)")
+                            return
+                        }
                         DispatchQueue.main.async {
                             // json转模型，这里用泛型
                             let errorCode = try? JSONDecoder().decode(ErrorCode.self, from: data)
@@ -158,16 +167,48 @@ struct HttpMethod<T: Codable> {
                                 do {
                                     let dataProcessed = try JSONDecoder().decode(T.self, from: data)
                                     completion(dataProcessed, errorCode?.message)
-                                } catch {}
+                                } catch {
+                                    print("errcode != 0, decode fail")
+                                }
                             }
                             else if errorCode?.code == 0 {
                                 do {
                                     let dataProcessed = try JSONDecoder().decode(T.self, from: data)
+                                    print("errcode == 0, decode success")
                                     completion(dataProcessed, errorCode?.message)
-                                } catch {}
+                                } catch {
+                                    print("errcode == 0, decode fail")
+                                }
                             }
                         }
                     }
+//                    else if
+//                        let data = data,
+//                        let response = response as? HTTPURLResponse,
+//                        response.statusCode == 200 {
+//                        DispatchQueue.main.async {
+//                            // json转模型，这里用泛型
+//                            let errorCode = try? JSONDecoder().decode(ErrorCode.self, from: data)
+//                            print(data)
+//                            print(errorCode ?? "ErrorCode nil")
+//                            if errorCode?.code != 0 {
+//                                // 不建议强制解码 好几次app崩溃报错都是在这里
+//                                do {
+//                                    let dataProcessed = try JSONDecoder().decode(T.self, from: data)
+//                                    completion(dataProcessed, errorCode?.message)
+//                                } catch {}
+//                            }
+//                            else if errorCode?.code == 0 {
+//                                do {
+//                                    let dataProcessed = try JSONDecoder().decode(T.self, from: data)
+//                                    print("decode success")
+//                                    completion(dataProcessed, errorCode?.message)
+//                                } catch {}
+//                            }
+//                        }
+//                    } else {
+//                        print("met undefined error")
+//                    }
                 }.resume()
             }
         }
