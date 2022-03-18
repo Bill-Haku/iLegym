@@ -37,7 +37,6 @@ extension API {
                     urlStr,
                     httpBody
                 ) { userLoginData, errorType in
-                    print(userLoginData.data?.userId ?? "uid nil")
                     // 异步返回相应数据
                     completion(userLoginData.data, errorType)
                 }

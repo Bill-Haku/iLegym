@@ -8,7 +8,28 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @Binding var hasLogined: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                Section(header: Text("设置")) {
+                    Button(action: clearAllUserDefaultsData) {
+                        Label("退出登录", systemImage: "arrow.left")
+                    }
+                }
+            }
+        }
+    }
+
+    func clearAllUserDefaultsData() {
+        let userDefaults = UserDefaults.standard
+        let dics = userDefaults.dictionaryRepresentation()
+        for key in dics {
+            userDefaults.removeObject(forKey: key.key)
+        }
+        userDefaults.synchronize()
+
+        hasLogined = false
     }
 }

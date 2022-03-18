@@ -23,7 +23,8 @@ enum SimpleTapticType {
 }
 
 func simpleTaptic(type: SimpleTapticType) {
-    let isTurnOnTaptic = UserDefaults.standard.bool(forKey: "isTurnOnTaptic")
+//    let isTurnOnTaptic = UserDefaults.standard.bool(forKey: "isTurnOnTaptic")
+    let isTurnOnTaptic = true
     if isTurnOnTaptic {
         let feedbackGenerator = UINotificationFeedbackGenerator()
         switch type {

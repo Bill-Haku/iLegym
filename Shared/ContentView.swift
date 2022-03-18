@@ -14,11 +14,9 @@ struct ContentView: View {
         ZStack  {
             #if os(iOS)
             LoginView(hasLogined: $hasLogined)
-            if hasLogined {
-                RootView()
-                    .animation(.default)
-                    .offset(y: (hasLogined && Device.deviceType == .iphone) ? 0 : 1.2 * WH.H)
-            }
+            RootView(hasLogined: $hasLogined)
+                .offset(y: hasLogined ? 0 : 1.2 * WH.H)
+                .animation(.default)
             #else
             LoginView()
             #endif

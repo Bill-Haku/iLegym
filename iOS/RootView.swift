@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RootView: View {
     @State var selection: Int = 0
+    @Binding var hasLogined: Bool
     var index: Binding<Int> { Binding(
         get: { self.selection },
         set: {
@@ -32,17 +33,11 @@ struct RootView: View {
                 .tabItem {
                     Text("跑步")
                 }
-            SettingsView()
+            SettingsView(hasLogined: $hasLogined)
                 .tag(2)
                 .tabItem {
                     Text("设置")
                 }
         }
-    }
-}
-
-struct RootView_Previews: PreviewProvider {
-    static var previews: some View {
-        RootView()
     }
 }

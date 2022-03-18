@@ -39,6 +39,7 @@ struct LoginView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     TextField("您的乐健账号", text: $userName)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .textContentType(.username)
                     Spacer()
                         .frame(width: 100, height: 16, alignment: .center)
                     Text("密码")
@@ -47,11 +48,13 @@ struct LoginView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     SecureField("输入您的密码", text: $userPassword)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .textContentType(.password)
 
                 }.padding()
                 Spacer().frame(width: 100, height: 60)
 
                 Button(action: {
+//                    hasLogined = true
                     API.Login.login(username: userName, password: userPassword) { loginData, errorInfo in
                         if loginData != nil {
                             UserDefaults.standard.setValue(loginData!.accessToken, forKey: "token")
@@ -65,10 +68,11 @@ struct LoginView: View {
                         .fontWeight(.bold)
                         .bold()
                         .foregroundColor(.white)
+                        .frame(width: UIScreen.main.bounds.width - 32, height: 44, alignment: .center)
+                        .background(Color.blue)
+                        .cornerRadius(22)
                 }
-                    .frame(width: UIScreen.main.bounds.width - 32, height: 44, alignment: .center)
-                    .background(Color.blue)
-                    .cornerRadius(22)
+
                 Spacer()
             }
             .onTapGesture {
