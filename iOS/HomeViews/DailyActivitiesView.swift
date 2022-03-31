@@ -51,10 +51,12 @@ private struct DailyActivityCell: View {
             Spacer()
             Button(action: {}) {
                 Text("打卡")
-                    .padding(5)
+                    .padding(.vertical, 5)
+                    .padding(.horizontal, 15)
                     .foregroundColor(.white)
-                    .background(Color.blue)
+                    .background(activity.state == 4 ? Color.blue : Color.gray)
                     .clipShape(Capsule())
+                    .disabled(activity.state != 4)
             }
         }
     }

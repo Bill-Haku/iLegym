@@ -86,6 +86,7 @@ struct LoginView: View {
                 API.Login.login(username: defaultUserName!, password: defaultPassword!) { loginData, errorInfo in
                     if loginData != nil {
                         UserDefaults.standard.setValue(loginData!.accessToken, forKey: "token")
+                        UserDefaults.standard.setValue(loginData!.nickName, forKey: "nickname")
                         print("token: \(loginData!.accessToken)")
                         hasLogined = true
                     }

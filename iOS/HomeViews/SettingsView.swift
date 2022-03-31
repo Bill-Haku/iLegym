@@ -19,6 +19,7 @@ struct SettingsView: View {
                     }
                 }
             }
+            .navigationTitle(UserDefaults.standard.string(forKey: "nickname") ?? "Uesrname_Error")
         }
     }
 

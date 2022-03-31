@@ -26,16 +26,19 @@ struct RootView: View {
             DailyActivitiesView()
                 .tag(0)
                 .tabItem {
+                    Image(systemName: "sportscourt")
                     Text("每日运动")
                 }
             RunningView()
                 .tag(1)
                 .tabItem {
+                    Image(systemName: "figure.walk")
                     Text("跑步")
                 }
             SettingsView(hasLogined: $hasLogined)
                 .tag(2)
                 .tabItem {
+                    Image(systemName: "gear")
                     Text("设置")
                 }
         }

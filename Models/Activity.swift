@@ -22,6 +22,10 @@ struct UserActivityListData: Codable {
     struct ItemUnit: Codable, Hashable, Identifiable {
         var id: String
         var name: String
+        /// 当前状态值
+        /// - 0: 报名未开始
+        /// - 4: 活动进行中
+        var state: Int
         var stateName: String
         var address: String
         var bgUrl: String?
