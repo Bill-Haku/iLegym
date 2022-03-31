@@ -44,7 +44,6 @@ private struct DailyActivityCell: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(activity.name)
-//                    .font(.title)
                 Text(activity.stateName)
                     .font(.caption)
             }

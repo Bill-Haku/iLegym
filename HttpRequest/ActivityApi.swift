@@ -11,9 +11,7 @@ extension API {
     struct Activity {
         /// 获取活动列表
         /// - Parameters:
-        ///   - username: 用户名
-        ///   - password: 用户密码
-        ///   - completion: UserLogInData的数据
+        ///  - completion: 数据
         static func getActivityList (
             completion: @escaping (
                 _ userLoginData: UserActivityListData?,
@@ -36,6 +34,41 @@ extension API {
             HttpMethod<ActivityListData>
                 .commonRequest(
                     .post,
+                    urlStr,
+                    httpBody
+                ) { activityListData, errorType in
+                    // 异步返回相应数据
+                    completion(activityListData.data, errorType)
+                }
+        }
+
+        /// 打卡
+        /// - Parameters:
+        ///   - completion: 数据
+        static func sign (
+            userid: String,
+            activityid: String,
+            completion: @escaping (
+                _ userLoginData: UserActivityListData?,
+                _ errorType: String?
+            ) -> ()
+        ) {
+            // 请求类别
+            let urlStr = "education/activity/app/attainability/sign"
+            // 请求体
+            var httpBody = [String: Any]()
+            httpBody.updateValue(userid, forKey: "userId")
+            httpBody.updateValue(activityid, forKey: "activityId")
+            httpBody.updateValue("activity", forKey: "pageType")
+            httpBody.updateValue(2, forKey: "times")
+            httpBody.updateValue(0, forKey: "activityType")
+            httpBody.updateValue(2, forKey: "attainabilityType")
+
+            // 请求
+            // TODO: 更改数据类型
+            HttpMethod<ActivityListData>
+                .commonRequest(
+                    .put,
                     urlStr,
                     httpBody
                 ) { activityListData, errorType in
