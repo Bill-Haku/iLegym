@@ -54,7 +54,6 @@ struct LoginView: View {
                 Spacer().frame(width: 100, height: 60)
 
                 Button(action: {
-//                    hasLogined = true
                     API.Login.login(username: userName, password: userPassword) { loginData, errorInfo in
                         if loginData != nil {
                             UserDefaults.standard.setValue(loginData!.accessToken, forKey: "token")
@@ -87,6 +86,7 @@ struct LoginView: View {
                 API.Login.login(username: defaultUserName!, password: defaultPassword!) { loginData, errorInfo in
                     if loginData != nil {
                         UserDefaults.standard.setValue(loginData!.accessToken, forKey: "token")
+                        print("token: \(loginData!.accessToken)")
                         hasLogined = true
                     }
                 }

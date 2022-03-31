@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		BF300D9327E36C04008F11D6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF300D9227E36C04008F11D6 /* SettingsView.swift */; };
+		BF300D9527E41648008F11D6 /* ActivityApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF300D9427E41648008F11D6 /* ActivityApi.swift */; };
+		BF300D9627E41648008F11D6 /* ActivityApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF300D9427E41648008F11D6 /* ActivityApi.swift */; };
+		BF300D9827E45D33008F11D6 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF300D9727E45D33008F11D6 /* Activity.swift */; };
+		BF300D9927E45D33008F11D6 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF300D9727E45D33008F11D6 /* Activity.swift */; };
 		BFC036EF27DCAE530097C274 /* iLegymApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC036DF27DCAE510097C274 /* iLegymApp.swift */; };
 		BFC036F027DCAE530097C274 /* iLegymApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC036DF27DCAE510097C274 /* iLegymApp.swift */; };
 		BFC036F127DCAE530097C274 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC036E027DCAE510097C274 /* ContentView.swift */; };
@@ -49,6 +53,8 @@
 /* Begin PBXFileReference section */
 		BF300D9127E35FF9008F11D6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BF300D9227E36C04008F11D6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		BF300D9427E41648008F11D6 /* ActivityApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityApi.swift; sourceTree = "<group>"; };
+		BF300D9727E45D33008F11D6 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		BFC036DF27DCAE510097C274 /* iLegymApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLegymApp.swift; sourceTree = "<group>"; };
 		BFC036E027DCAE510097C274 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BFC036E127DCAE530097C274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -166,6 +172,7 @@
 			children = (
 				BFC0371527DCD4FC0097C274 /* HttpMethod.swift */,
 				BFC0371F27DCE3990097C274 /* LoginApi.swift */,
+				BF300D9427E41648008F11D6 /* ActivityApi.swift */,
 			);
 			path = HttpRequest;
 			sourceTree = "<group>";
@@ -175,6 +182,7 @@
 			children = (
 				BFC0371C27DCD7560097C274 /* Error.swift */,
 				BFC0372227DCE45C0097C274 /* UserLogin.swift */,
+				BF300D9727E45D33008F11D6 /* Activity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -299,9 +307,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF300D9827E45D33008F11D6 /* Activity.swift in Sources */,
 				BF300D9327E36C04008F11D6 /* SettingsView.swift in Sources */,
 				BFC036FE27DCAF190097C274 /* LoginView.swift in Sources */,
 				BFC0370927DCCFB40097C274 /* DeviceRecognizer.swift in Sources */,
+				BF300D9527E41648008F11D6 /* ActivityApi.swift in Sources */,
 				BFC036F127DCAE530097C274 /* ContentView.swift in Sources */,
 				BFC0371D27DCD7560097C274 /* Error.swift in Sources */,
 				BFC0372627DE0E710097C274 /* ScreenWH.swift in Sources */,
@@ -321,7 +331,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF300D9927E45D33008F11D6 /* Activity.swift in Sources */,
 				BFC0371727DCD4FC0097C274 /* HttpMethod.swift in Sources */,
+				BF300D9627E41648008F11D6 /* ActivityApi.swift in Sources */,
 				BFC036F227DCAE530097C274 /* ContentView.swift in Sources */,
 				BFC0372427DCE45C0097C274 /* UserLogin.swift in Sources */,
 				BFC0370327DCB6450097C274 /* LoginView_macOS.swift in Sources */,
@@ -452,7 +464,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 42;
+				CURRENT_PROJECT_VERSION = 55;
 				DEVELOPMENT_TEAM = L7XRJ79BCH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -482,7 +494,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 42;
+				CURRENT_PROJECT_VERSION = 55;
 				DEVELOPMENT_TEAM = L7XRJ79BCH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -515,7 +527,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 42;
+				CURRENT_PROJECT_VERSION = 55;
 				DEVELOPMENT_TEAM = L7XRJ79BCH;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -543,7 +555,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 42;
+				CURRENT_PROJECT_VERSION = 55;
 				DEVELOPMENT_TEAM = L7XRJ79BCH;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;

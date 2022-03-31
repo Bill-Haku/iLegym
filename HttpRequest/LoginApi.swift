@@ -29,7 +29,6 @@ extension API {
             httpBody.updateValue(username, forKey: "userName")
             httpBody.updateValue(password, forKey: "password")
             httpBody.updateValue(1, forKey: "entrance")
-            print(httpBody["password"]!)
             // 请求
             HttpMethod<LoginData>
                 .loginRequest(

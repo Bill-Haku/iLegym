@@ -24,7 +24,7 @@ struct HttpMethod<T: Codable> {
     static func commonRequest (
         _ method: Method,
         _ urlStr: String,
-        _ bodyJson: String,
+        _ bodyJson: [String: Any],
         completion: @escaping(
             _ dataProcessed: T,
             _ errorType: String?
@@ -43,6 +43,9 @@ struct HttpMethod<T: Codable> {
                 var request = URLRequest(url: url)
                 // 将请求数据类型设置为 application/json
                 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                // 添加token
+                let token = UserDefaults.standard.string(forKey: "token")
+                request.setValue("Bearer \(token ?? "")", forHTTPHeaderField: "Authorization")
                 // http方法
                 switch method {
                 case .post:
@@ -66,10 +69,27 @@ struct HttpMethod<T: Codable> {
                             "DataTask error in General HttpMethod: " +
                             error.localizedDescription + "\n"
                         )
-                    } else if
-                        let data = data,
-                        let response = response as? HTTPURLResponse,
-                        response.statusCode == 200 {
+                    } else {
+                        guard let data = data else {
+                            print("found response data nil")
+                            return
+                        }
+                        guard let response = response as? HTTPURLResponse else {
+                            print("response error")
+                            return
+                        }
+                        guard response.statusCode == 200 else {
+                            print("response error, code: \(response.statusCode)")
+                            do {
+//                                let dataProcessed = try JSONDecoder().decode(T.self, from: data)
+                                let errorCode = try? JSONDecoder().decode(ErrorCode.self, from: data)
+                                print(errorCode?.message)
+                            } catch {
+                                print("decode fail")
+                            }
+                            print()
+                            return
+                        }
                         DispatchQueue.main.async {
                             // json转模型，这里用泛型
                             let errorCode = try? JSONDecoder().decode(ErrorCode.self, from: data)
@@ -80,13 +100,18 @@ struct HttpMethod<T: Codable> {
                                 do {
                                     let dataProcessed = try JSONDecoder().decode(T.self, from: data)
                                     completion(dataProcessed, errorCode?.message)
-                                } catch {}
+                                } catch {
+                                    print("errcode != 0, decode fail")
+                                }
                             }
                             else if errorCode?.code == 0 {
                                 do {
                                     let dataProcessed = try JSONDecoder().decode(T.self, from: data)
+                                    print("errcode == 0, decode success")
                                     completion(dataProcessed, errorCode?.message)
-                                } catch {}
+                                } catch {
+                                    print("errcode == 0, decode fail")
+                                }
                             }
                         }
                     }
@@ -143,7 +168,7 @@ struct HttpMethod<T: Codable> {
                     // 判断有没有错误（这里无论如何都不会抛因为是自己手动返回错误信息的）
                     print(error ?? "ErrorInfo nil")
                     if let error = error {
-                        print("DataTask error in General HttpMethod: " + error.localizedDescription)
+                        print("DataTask error in Login HttpMethod: " + error.localizedDescription)
                     } else {
                         guard let data = data else {
                             print("found response data nil")
