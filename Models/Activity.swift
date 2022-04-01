@@ -13,6 +13,12 @@ struct ActivityListData: Codable {
     var data: UserActivityListData?
 }
 
+struct ActivitySignUpReturnData: Codable {
+    var code: Int
+    var message: String?
+    var data: UserActivitySignUpReturnData?
+}
+
 struct UserActivityListData: Codable {
     var pageNum: Int
     var pageSize: Int
@@ -24,6 +30,7 @@ struct UserActivityListData: Codable {
         var name: String
         /// 当前状态值
         /// - 0: 报名未开始
+        /// - 1: 报名进行中
         /// - 4: 活动进行中
         var state: Int
         var stateName: String
@@ -39,4 +46,9 @@ struct UserActivityListData: Codable {
         var openSignTimes: Int?
         var performTime: Int?
     }
+}
+
+struct UserActivitySignUpReturnData: Codable {
+    var success: Bool
+    var reason: String?
 }

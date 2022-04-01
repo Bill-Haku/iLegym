@@ -75,5 +75,33 @@ extension API {
                     completion(responseData, errorType)
                 }
         }
+
+        /// 报名
+        /// - Parameters:
+        ///   - completion: 数据
+        static func signUp (
+            activityid: String,
+            completion: @escaping (
+                _ userLoginData: UserActivitySignUpReturnData?,
+                _ errorType: String?
+            ) -> ()
+        ) {
+            // 请求类别
+            let urlStr = "education/app/activity/signUp"
+            // 请求体
+            var httpBody = [String: Any]()
+            httpBody.updateValue(activityid, forKey: "activityId")
+
+            // 请求
+            HttpMethod<ActivitySignUpReturnData>
+                .commonRequest(
+                    .post,
+                    urlStr,
+                    httpBody
+                ) { responseData, errorType in
+                    // 异步返回相应数据
+                    completion(responseData.data, errorType)
+                }
+        }
     }
 }

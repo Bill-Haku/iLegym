@@ -15,11 +15,14 @@ struct DailyActivitiesView: View {
             if activities == nil {
                 Text("Load activities fail")
             } else {
-                VStack {
-                    List {
-                        ForEach(activities!.items, id: \.self) { activity in
-                            DailyActivityCell(activity: activity)
-                        }
+                List {
+                    ForEach(activities!.items, id: \.self) { activity in
+                        DailyActivityCell(activity: activity)
+                    }
+                }
+                .refreshable {
+                    API.Activity.getActivityList() { apiActivities, _ in
+                        activities = apiActivities
                     }
                 }
                 .navigationTitle("每日运动")
@@ -48,14 +51,27 @@ private struct DailyActivityCell: View {
                     .font(.caption)
             }
             Spacer()
-            Button(action: sign) {
-                Text("打卡")
-                    .padding(.vertical, 5)
-                    .padding(.horizontal, 15)
-                    .foregroundColor(.white)
-                    .background(activity.state == 4 ? Color.blue : Color.gray)
-                    .clipShape(Capsule())
-                    .disabled(activity.state != 4)
+            if activity.state == 1 {
+                Button(action: signUp) {
+                    Text(activity.isRegister ? "已报名" : "报名")
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 15)
+                        .foregroundColor(.white)
+                        .background(activity.isRegister ? Color.gray : Color.blue)
+                        .clipShape(Capsule())
+                        .disabled(activity.isRegister)
+                }
+            }
+            else if activity.state == 4 {
+                Button(action: sign) {
+                    Text("打卡")
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 15)
+                        .foregroundColor(.white)
+                        .background(activity.isSign ?? false ? Color.gray : Color.blue)
+                        .clipShape(Capsule())
+                        .disabled(activity.state != 4)
+                }
             }
         }
     }
@@ -63,6 +79,12 @@ private struct DailyActivityCell: View {
     func sign() -> Void {
         API.Activity.sign(userid: UserDefaults.standard.string(forKey: "id") ?? "", activityid: activity.id) { res, _ in
             print("\(res?.code ?? -1) - \(res?.message ?? "res message nil")")
+        }
+    }
+
+    func signUp() -> Void {
+        API.Activity.signUp(activityid: activity.id) { res, _ in
+            print(res?.success ?? false ? "success \(res!.reason ?? "")" : "fail \(res?.reason ?? "reason nil")")
         }
     }
 }
