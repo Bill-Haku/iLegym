@@ -48,7 +48,7 @@ private struct DailyActivityCell: View {
                     .font(.caption)
             }
             Spacer()
-            Button(action: {}) {
+            Button(action: sign) {
                 Text("打卡")
                     .padding(.vertical, 5)
                     .padding(.horizontal, 15)
@@ -57,6 +57,12 @@ private struct DailyActivityCell: View {
                     .clipShape(Capsule())
                     .disabled(activity.state != 4)
             }
+        }
+    }
+
+    func sign() -> Void {
+        API.Activity.sign(userid: UserDefaults.standard.string(forKey: "id") ?? "", activityid: activity.id) { res, _ in
+            print("\(res?.code ?? -1) - \(res?.message ?? "res message nil")")
         }
     }
 }

@@ -12,6 +12,8 @@
 		BF300D9627E41648008F11D6 /* ActivityApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF300D9427E41648008F11D6 /* ActivityApi.swift */; };
 		BF300D9827E45D33008F11D6 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF300D9727E45D33008F11D6 /* Activity.swift */; };
 		BF300D9927E45D33008F11D6 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF300D9727E45D33008F11D6 /* Activity.swift */; };
+		BF94B18B27F6D225000B1EA8 /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94B18A27F6D225000B1EA8 /* Empty.swift */; };
+		BF94B18C27F6D225000B1EA8 /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94B18A27F6D225000B1EA8 /* Empty.swift */; };
 		BFC036EF27DCAE530097C274 /* iLegymApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC036DF27DCAE510097C274 /* iLegymApp.swift */; };
 		BFC036F027DCAE530097C274 /* iLegymApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC036DF27DCAE510097C274 /* iLegymApp.swift */; };
 		BFC036F127DCAE530097C274 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC036E027DCAE510097C274 /* ContentView.swift */; };
@@ -55,6 +57,7 @@
 		BF300D9227E36C04008F11D6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		BF300D9427E41648008F11D6 /* ActivityApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityApi.swift; sourceTree = "<group>"; };
 		BF300D9727E45D33008F11D6 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		BF94B18A27F6D225000B1EA8 /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
 		BFC036DF27DCAE510097C274 /* iLegymApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLegymApp.swift; sourceTree = "<group>"; };
 		BFC036E027DCAE510097C274 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BFC036E127DCAE530097C274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -183,6 +186,7 @@
 				BFC0371C27DCD7560097C274 /* Error.swift */,
 				BFC0372227DCE45C0097C274 /* UserLogin.swift */,
 				BF300D9727E45D33008F11D6 /* Activity.swift */,
+				BF94B18A27F6D225000B1EA8 /* Empty.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -312,6 +316,7 @@
 				BFC036FE27DCAF190097C274 /* LoginView.swift in Sources */,
 				BFC0370927DCCFB40097C274 /* DeviceRecognizer.swift in Sources */,
 				BF300D9527E41648008F11D6 /* ActivityApi.swift in Sources */,
+				BF94B18B27F6D225000B1EA8 /* Empty.swift in Sources */,
 				BFC036F127DCAE530097C274 /* ContentView.swift in Sources */,
 				BFC0371D27DCD7560097C274 /* Error.swift in Sources */,
 				BFC0372627DE0E710097C274 /* ScreenWH.swift in Sources */,
@@ -338,6 +343,7 @@
 				BFC0372427DCE45C0097C274 /* UserLogin.swift in Sources */,
 				BFC0370327DCB6450097C274 /* LoginView_macOS.swift in Sources */,
 				BFC036F027DCAE530097C274 /* iLegymApp.swift in Sources */,
+				BF94B18C27F6D225000B1EA8 /* Empty.swift in Sources */,
 				BFC0371E27DCD7560097C274 /* Error.swift in Sources */,
 				BFC0372127DCE3990097C274 /* LoginApi.swift in Sources */,
 				BFC0371A27DCD5460097C274 /* NetworkReachability.swift in Sources */,
@@ -464,7 +470,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = L7XRJ79BCH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -494,7 +500,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = L7XRJ79BCH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -527,7 +533,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = L7XRJ79BCH;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -555,7 +561,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = L7XRJ79BCH;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;

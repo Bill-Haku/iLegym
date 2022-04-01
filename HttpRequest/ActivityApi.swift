@@ -49,7 +49,7 @@ extension API {
             userid: String,
             activityid: String,
             completion: @escaping (
-                _ userLoginData: UserActivityListData?,
+                _ userLoginData: EmptyData?,
                 _ errorType: String?
             ) -> ()
         ) {
@@ -65,15 +65,14 @@ extension API {
             httpBody.updateValue(2, forKey: "attainabilityType")
 
             // 请求
-            // TODO: 更改数据类型
-            HttpMethod<ActivityListData>
+            HttpMethod<EmptyData>
                 .commonRequest(
                     .put,
                     urlStr,
                     httpBody
-                ) { activityListData, errorType in
+                ) { responseData, errorType in
                     // 异步返回相应数据
-                    completion(activityListData.data, errorType)
+                    completion(responseData, errorType)
                 }
         }
     }

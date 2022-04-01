@@ -59,6 +59,8 @@ struct LoginView: View {
                             UserDefaults.standard.setValue(loginData!.accessToken, forKey: "token")
                             UserDefaults.standard.setValue(userName, forKey: "username")
                             UserDefaults.standard.setValue(userPassword, forKey: "password")
+                            UserDefaults.standard.setValue(loginData!.nickName, forKey: "nickname")
+                            UserDefaults.standard.setValue(loginData!.id, forKey: "id")
                             hasLogined = true
                         }
                     }
@@ -87,6 +89,7 @@ struct LoginView: View {
                     if loginData != nil {
                         UserDefaults.standard.setValue(loginData!.accessToken, forKey: "token")
                         UserDefaults.standard.setValue(loginData!.nickName, forKey: "nickname")
+                        UserDefaults.standard.setValue(loginData!.id, forKey: "id")
                         print("token: \(loginData!.accessToken)")
                         hasLogined = true
                     }
