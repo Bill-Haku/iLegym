@@ -87,7 +87,6 @@ struct HttpMethod<T: Codable> {
                             } catch {
                                 print("decode fail")
                             }
-                            print()
                             return
                         }
                         DispatchQueue.main.async {

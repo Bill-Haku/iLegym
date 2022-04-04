@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     @State var hasLogined = false
+    @State var userInfo: UserLoginData? = nil
 
     var body: some View {
         ZStack  {
             #if os(iOS)
-            LoginView(hasLogined: $hasLogined)
-            RootView(hasLogined: $hasLogined)
+            LoginView(hasLogined: $hasLogined, userInfo: $userInfo)
+            RootView(hasLogined: $hasLogined, userInfo: $userInfo)
                 .offset(y: hasLogined ? 0 : 1.2 * WH.H)
                 .animation(.default)
             #else

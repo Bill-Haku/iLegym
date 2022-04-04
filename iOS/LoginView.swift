@@ -20,6 +20,7 @@ struct LoginView: View {
     @State var userName = ""
     @State var userPassword = ""
     @Binding var hasLogined: Bool
+    @Binding var userInfo: UserLoginData?
 
     var body: some View {
         NavigationView {
@@ -62,6 +63,7 @@ struct LoginView: View {
                             UserDefaults.standard.setValue(loginData!.nickName, forKey: "nickname")
                             UserDefaults.standard.setValue(loginData!.id, forKey: "id")
                             hasLogined = true
+                            userInfo = loginData
                         }
                     }
                 }) {
@@ -92,6 +94,7 @@ struct LoginView: View {
                         UserDefaults.standard.setValue(loginData!.id, forKey: "id")
                         print("token: \(loginData!.accessToken)")
                         hasLogined = true
+                        userInfo = loginData
                     }
                 }
             }

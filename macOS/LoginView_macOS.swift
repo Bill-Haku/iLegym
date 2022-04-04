@@ -11,7 +11,7 @@ struct LoginView: View {
     @State var userName = ""
     @State var userPassword = ""
     var body: some View {
-        NavigationView {
+//        NavigationView {
             VStack {
                 Text("登录 iLegym")
                     .font(.largeTitle)
@@ -55,12 +55,6 @@ struct LoginView: View {
             .onTapGesture {
                 print("tap")
             }
-        }
-    }
-}
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
+//        }
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct RootView: View {
     @State var selection: Int = 0
     @Binding var hasLogined: Bool
+    @Binding var userInfo: UserLoginData?
     var index: Binding<Int> { Binding(
         get: { self.selection },
         set: {
@@ -35,7 +36,7 @@ struct RootView: View {
                     Image(systemName: "figure.walk")
                     Text("跑步")
                 }
-            SettingsView(hasLogined: $hasLogined)
+            SettingsView(hasLogined: $hasLogined, userInfo: $userInfo)
                 .tag(2)
                 .tabItem {
                     Image(systemName: "gear")
