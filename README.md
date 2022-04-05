@@ -17,7 +17,7 @@
 ## 系统需求&开发说明
 
 - Universal客户端，支持iPhone，iPad，和Mac
-- iOS/iPadOS版本要求：iOS 14.0 / iPadOS 14.0或更高
+- iOS/iPadOS版本要求：iOS 15.0 / iPadOS 15.0或更高
 - macOS版本要求：macOS Montery 12.0或更高
     - 支持搭载Apple Silicon的Mac和搭载Intel芯片的Mac
 
