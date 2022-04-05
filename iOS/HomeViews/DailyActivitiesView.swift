@@ -13,6 +13,7 @@ struct DailyActivitiesView: View {
     @State var alertContent: String = ""
 
     var body: some View {
+        #if os(iOS)
         NavigationView {
             if activities == nil {
                 Text("Load activities fail\nTap to refresh")
@@ -55,6 +56,48 @@ struct DailyActivitiesView: View {
                 }
             }
         }
+        #else
+        VStack {
+            if activities == nil {
+                Text("Load activities fail\nTap to refresh")
+                    .onTapGesture {
+                        API.Activity.getActivityList() { apiActivities, errorInfo in
+                            if errorInfo != nil {
+                                isShowAlert = true
+                                alertContent = errorInfo!
+                            }
+                            activities = apiActivities
+                        }
+                    }
+            } else {
+                List {
+                    ForEach(activities!.items, id: \.self) { activity in
+                        DailyActivityCell(activity: activity, isShowAlert: $isShowAlert, alertContent: $alertContent)
+                    }
+                }
+                .refreshable {
+                    API.Activity.getActivityList() { apiActivities, _ in
+                        activities = apiActivities
+                    }
+                }
+                .navigationTitle("每日运动")
+            }
+        }
+        .alert(isPresented: $isShowAlert) {
+            Alert(title: Text("加载错误"), message: Text(alertContent), dismissButton: .default(Text("好")))
+        }
+        .onAppear() {
+            if activities == nil {
+                API.Activity.getActivityList() { apiActivities, errorInfo in
+                    if errorInfo != nil {
+                        isShowAlert = true
+                        alertContent = errorInfo!
+                    }
+                    activities = apiActivities
+                }
+            }
+        }
+        #endif
     }
 }
 
@@ -82,6 +125,9 @@ private struct DailyActivityCell: View {
                         .clipShape(Capsule())
                         .disabled(activity.isRegister)
                 }
+                #if os(macOS)
+                .buttonStyle(.plain)
+                #endif
             }
             else if activity.state == 4 && activity.isRegister {
                 Button(action: sign) {
@@ -94,12 +140,17 @@ private struct DailyActivityCell: View {
                         .clipShape(Capsule())
 //                        .disabled(activity.isSign ?? false)
                 }
+                #if os(macOS)
+                .buttonStyle(.plain)
+                #endif
             }
         }
     }
 
     func sign() -> Void {
+        #if os(iOS)
         simpleTaptic(type: .success)
+        #endif
         API.Activity.sign(userid: UserDefaults.standard.string(forKey: "id") ?? "", activityid: activity.id) { res, errorInfo in
             if errorInfo != nil {
                 isShowAlert = true
@@ -110,7 +161,9 @@ private struct DailyActivityCell: View {
     }
 
     func signUp() -> Void {
+        #if os(iOS)
         simpleTaptic(type: .success)
+        #endif
         API.Activity.signUp(activityid: activity.id) { res, errorInfo in
             if errorInfo != nil || !(res?.success ?? false) {
                 isShowAlert = true

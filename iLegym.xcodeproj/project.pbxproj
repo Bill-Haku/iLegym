@@ -14,6 +14,12 @@
 		BF300D9927E45D33008F11D6 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF300D9727E45D33008F11D6 /* Activity.swift */; };
 		BF94B18B27F6D225000B1EA8 /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94B18A27F6D225000B1EA8 /* Empty.swift */; };
 		BF94B18C27F6D225000B1EA8 /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94B18A27F6D225000B1EA8 /* Empty.swift */; };
+		BF94B18F27FC14F8000B1EA8 /* RootView_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94B18D27FC14F3000B1EA8 /* RootView_macOS.swift */; };
+		BF94B19127FC1591000B1EA8 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94B19027FC1591000B1EA8 /* SideBarView.swift */; };
+		BF94B19227FC16E1000B1EA8 /* DailyActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0370E27DCD3030097C274 /* DailyActivitiesView.swift */; };
+		BF94B19327FC16E4000B1EA8 /* RunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC0371027DCD3210097C274 /* RunningView.swift */; };
+		BF94B19427FC16EB000B1EA8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF300D9227E36C04008F11D6 /* SettingsView.swift */; };
+		BF94B19727FC22F6000B1EA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94B19527FC22E8000B1EA8 /* AppDelegate.swift */; };
 		BFC036EF27DCAE530097C274 /* iLegymApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC036DF27DCAE510097C274 /* iLegymApp.swift */; };
 		BFC036F027DCAE530097C274 /* iLegymApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC036DF27DCAE510097C274 /* iLegymApp.swift */; };
 		BFC036F127DCAE530097C274 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC036E027DCAE510097C274 /* ContentView.swift */; };
@@ -58,6 +64,9 @@
 		BF300D9427E41648008F11D6 /* ActivityApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityApi.swift; sourceTree = "<group>"; };
 		BF300D9727E45D33008F11D6 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		BF94B18A27F6D225000B1EA8 /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
+		BF94B18D27FC14F3000B1EA8 /* RootView_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView_macOS.swift; sourceTree = "<group>"; };
+		BF94B19027FC1591000B1EA8 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
+		BF94B19527FC22E8000B1EA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFC036DF27DCAE510097C274 /* iLegymApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLegymApp.swift; sourceTree = "<group>"; };
 		BFC036E027DCAE510097C274 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BFC036E127DCAE530097C274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,7 +142,10 @@
 		BFC036ED27DCAE530097C274 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				BF94B19527FC22E8000B1EA8 /* AppDelegate.swift */,
 				BFC0370227DCB6450097C274 /* LoginView_macOS.swift */,
+				BF94B18D27FC14F3000B1EA8 /* RootView_macOS.swift */,
+				BF94B19027FC1591000B1EA8 /* SideBarView.swift */,
 				BFC036EE27DCAE530097C274 /* macOS.entitlements */,
 			);
 			path = macOS;
@@ -337,15 +349,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF300D9927E45D33008F11D6 /* Activity.swift in Sources */,
+				BF94B19327FC16E4000B1EA8 /* RunningView.swift in Sources */,
+				BF94B19227FC16E1000B1EA8 /* DailyActivitiesView.swift in Sources */,
 				BFC0371727DCD4FC0097C274 /* HttpMethod.swift in Sources */,
 				BF300D9627E41648008F11D6 /* ActivityApi.swift in Sources */,
 				BFC036F227DCAE530097C274 /* ContentView.swift in Sources */,
+				BF94B18F27FC14F8000B1EA8 /* RootView_macOS.swift in Sources */,
 				BFC0372427DCE45C0097C274 /* UserLogin.swift in Sources */,
+				BF94B19127FC1591000B1EA8 /* SideBarView.swift in Sources */,
+				BF94B19427FC16EB000B1EA8 /* SettingsView.swift in Sources */,
 				BFC0370327DCB6450097C274 /* LoginView_macOS.swift in Sources */,
 				BFC036F027DCAE530097C274 /* iLegymApp.swift in Sources */,
 				BF94B18C27F6D225000B1EA8 /* Empty.swift in Sources */,
 				BFC0371E27DCD7560097C274 /* Error.swift in Sources */,
 				BFC0372127DCE3990097C274 /* LoginApi.swift in Sources */,
+				BF94B19727FC22F6000B1EA8 /* AppDelegate.swift in Sources */,
 				BFC0371A27DCD5460097C274 /* NetworkReachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,7 +488,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 111;
+				CURRENT_PROJECT_VERSION = 114;
 				DEVELOPMENT_TEAM = L7XRJ79BCH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -484,7 +502,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hakubill.iLegym;
 				PRODUCT_NAME = iLegym;
 				SDKROOT = iphoneos;
@@ -500,7 +518,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 111;
+				CURRENT_PROJECT_VERSION = 114;
 				DEVELOPMENT_TEAM = L7XRJ79BCH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -514,7 +532,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hakubill.iLegym;
 				PRODUCT_NAME = iLegym;
 				SDKROOT = iphoneos;
@@ -533,7 +551,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 111;
+				CURRENT_PROJECT_VERSION = 114;
 				DEVELOPMENT_TEAM = L7XRJ79BCH;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -544,7 +562,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hakubill.iLegym;
 				PRODUCT_NAME = iLegym;
 				SDKROOT = macosx;
@@ -561,7 +579,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 111;
+				CURRENT_PROJECT_VERSION = 114;
 				DEVELOPMENT_TEAM = L7XRJ79BCH;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -572,7 +590,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hakubill.iLegym;
 				PRODUCT_NAME = iLegym;
 				SDKROOT = macosx;

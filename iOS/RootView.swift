@@ -38,8 +38,8 @@ struct RootView: View {
             SettingsView(hasLogined: $hasLogined, userInfo: $userInfo)
                 .tag(2)
                 .tabItem {
-                    Image(systemName: "gear")
-                    Text("设置")
+                    Image(systemName: "person.crop.circle")
+                    Text("我的")
                 }
         }
     }

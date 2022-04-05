@@ -12,9 +12,3 @@ struct RunningView: View {
         Text("开发中\n敬请期待")
     }
 }
-
-struct RunningView_Previews: PreviewProvider {
-    static var previews: some View {
-        RunningView()
-    }
-}
