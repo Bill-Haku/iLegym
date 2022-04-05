@@ -68,6 +68,7 @@ struct LoginView: View {
                             UserDefaults.standard.setValue(userPassword, forKey: "password")
                             UserDefaults.standard.setValue(loginData!.nickName, forKey: "nickname")
                             UserDefaults.standard.setValue(loginData!.id, forKey: "id")
+                            print("token: \(loginData!.accessToken)")
                             hasLogined = true
                             userInfo = loginData
                         }

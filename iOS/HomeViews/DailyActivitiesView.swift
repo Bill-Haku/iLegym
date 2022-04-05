@@ -9,20 +9,26 @@ import SwiftUI
 
 struct DailyActivitiesView: View {
     @State var activities: UserActivityListData? = nil
+    @State var isShowAlert: Bool = false
+    @State var alertContent: String = ""
 
     var body: some View {
         NavigationView {
             if activities == nil {
                 Text("Load activities fail\nTap to refresh")
                     .onTapGesture {
-                        API.Activity.getActivityList() { apiActivities, _ in
+                        API.Activity.getActivityList() { apiActivities, errorInfo in
+                            if errorInfo != nil {
+                                isShowAlert = true
+                                alertContent = errorInfo!
+                            }
                             activities = apiActivities
                         }
                     }
             } else {
                 List {
                     ForEach(activities!.items, id: \.self) { activity in
-                        DailyActivityCell(activity: activity)
+                        DailyActivityCell(activity: activity, isShowAlert: $isShowAlert, alertContent: $alertContent)
                     }
                 }
                 .refreshable {
@@ -34,9 +40,16 @@ struct DailyActivitiesView: View {
                 .navigationBarTitleDisplayMode(.inline)
             }
         }
+        .alert(isPresented: $isShowAlert) {
+            Alert(title: Text("加载错误"), message: Text(alertContent), dismissButton: .default(Text("好")))
+        }
         .onAppear() {
             if activities == nil {
-                API.Activity.getActivityList() { apiActivities, _ in
+                API.Activity.getActivityList() { apiActivities, errorInfo in
+                    if errorInfo != nil {
+                        isShowAlert = true
+                        alertContent = errorInfo!
+                    }
                     activities = apiActivities
                 }
             }
@@ -47,6 +60,8 @@ struct DailyActivitiesView: View {
 private struct DailyActivityCell: View {
     var activity: UserActivityListData.ItemUnit
     @State var isChosen: Bool = false
+    @Binding var isShowAlert: Bool
+    @Binding var alertContent: String
 
     var body: some View {
         HStack {
@@ -84,14 +99,22 @@ private struct DailyActivityCell: View {
 
     func sign() -> Void {
         simpleTaptic(type: .success)
-        API.Activity.sign(userid: UserDefaults.standard.string(forKey: "id") ?? "", activityid: activity.id) { res, _ in
+        API.Activity.sign(userid: UserDefaults.standard.string(forKey: "id") ?? "", activityid: activity.id) { res, errorInfo in
+            if errorInfo != nil {
+                isShowAlert = true
+                alertContent = errorInfo!
+            }
             print("\(res?.code ?? -1) - \(res?.message ?? "res message nil")")
         }
     }
 
     func signUp() -> Void {
         simpleTaptic(type: .success)
-        API.Activity.signUp(activityid: activity.id) { res, _ in
+        API.Activity.signUp(activityid: activity.id) { res, errorInfo in
+            if errorInfo != nil || !(res?.success ?? false) {
+                isShowAlert = true
+                alertContent = errorInfo ?? "" + (res?.reason ?? "")
+            }
             print(res?.success ?? false ? "success \(res!.reason ?? "")" : "fail \(res?.reason ?? "reason nil")")
         }
     }
