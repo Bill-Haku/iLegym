@@ -35,9 +35,9 @@ extension API {
                     .post,
                     urlStr,
                     httpBody
-                ) { userLoginData, errorType in
+                ) { userLoginData, errorInfo in
                     // 异步返回相应数据
-                    completion(userLoginData.data, errorType)
+                    completion(userLoginData.data, errorInfo)
                 }
         }
     }

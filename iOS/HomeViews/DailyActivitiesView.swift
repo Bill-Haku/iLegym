@@ -13,7 +13,12 @@ struct DailyActivitiesView: View {
     var body: some View {
         NavigationView {
             if activities == nil {
-                Text("Load activities fail")
+                Text("Load activities fail\nTap to refresh")
+                    .onTapGesture {
+                        API.Activity.getActivityList() { apiActivities, _ in
+                            activities = apiActivities
+                        }
+                    }
             } else {
                 List {
                     ForEach(activities!.items, id: \.self) { activity in
@@ -78,12 +83,14 @@ private struct DailyActivityCell: View {
     }
 
     func sign() -> Void {
+        simpleTaptic(type: .success)
         API.Activity.sign(userid: UserDefaults.standard.string(forKey: "id") ?? "", activityid: activity.id) { res, _ in
             print("\(res?.code ?? -1) - \(res?.message ?? "res message nil")")
         }
     }
 
     func signUp() -> Void {
+        simpleTaptic(type: .success)
         API.Activity.signUp(activityid: activity.id) { res, _ in
             print(res?.success ?? false ? "success \(res!.reason ?? "")" : "fail \(res?.reason ?? "reason nil")")
         }

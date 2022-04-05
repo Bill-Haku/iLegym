@@ -36,9 +36,9 @@ extension API {
                     .post,
                     urlStr,
                     httpBody
-                ) { activityListData, errorType in
+                ) { activityListData, errorInfo in
                     // 异步返回相应数据
-                    completion(activityListData.data, errorType)
+                    completion(activityListData.data, errorInfo)
                 }
         }
 
@@ -98,9 +98,9 @@ extension API {
                     .post,
                     urlStr,
                     httpBody
-                ) { responseData, errorType in
+                ) { responseData, errorInfo in
                     // 异步返回相应数据
-                    completion(responseData.data, errorType)
+                    completion(responseData.data, errorInfo)
                 }
         }
     }

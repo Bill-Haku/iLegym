@@ -78,16 +78,9 @@ struct HttpMethod<T: Codable> {
                             print("response error")
                             return
                         }
-                        guard response.statusCode == 200 else {
+
+                        if response.statusCode != 200 {
                             print("response error, code: \(response.statusCode)")
-                            do {
-//                                let dataProcessed = try JSONDecoder().decode(T.self, from: data)
-                                let errorCode = try? JSONDecoder().decode(ErrorCode.self, from: data)
-                                print(errorCode?.message)
-                            } catch {
-                                print("decode fail")
-                            }
-                            return
                         }
                         DispatchQueue.main.async {
                             // json转模型，这里用泛型
@@ -177,9 +170,9 @@ struct HttpMethod<T: Codable> {
                             print("response error")
                             return
                         }
-                        guard response.statusCode == 200 else {
+                        
+                        if response.statusCode != 200 {
                             print("response error, code: \(response.statusCode)")
-                            return
                         }
                         DispatchQueue.main.async {
                             // json转模型，这里用泛型

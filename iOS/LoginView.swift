@@ -21,6 +21,8 @@ struct LoginView: View {
     @State var userPassword = ""
     @Binding var hasLogined: Bool
     @Binding var userInfo: UserLoginData?
+    @State var isShowAlert: Bool = false
+    @State var alertConetent: String = ""
 
     var body: some View {
         NavigationView {
@@ -56,6 +58,10 @@ struct LoginView: View {
 
                 Button(action: {
                     API.Login.login(username: userName, password: userPassword) { loginData, errorInfo in
+                        if errorInfo != nil {
+                            isShowAlert = true
+                            alertConetent = errorInfo!
+                        }
                         if loginData != nil {
                             UserDefaults.standard.setValue(loginData!.accessToken, forKey: "token")
                             UserDefaults.standard.setValue(userName, forKey: "username")
@@ -81,6 +87,9 @@ struct LoginView: View {
             .onTapGesture {
                 self.hideKeyboard()
             }
+            .alert(isPresented: $isShowAlert) {
+                Alert(title: Text("登录失败"), message: Text(alertConetent), dismissButton: .default(Text("好")))
+            }
             .onAppear() {
                 let defaultUserName = UserDefaults.standard.string(forKey: "username")
                 let defaultPassword = UserDefaults.standard.string(forKey: "password")
@@ -88,6 +97,10 @@ struct LoginView: View {
                     return
                 }
                 API.Login.login(username: defaultUserName!, password: defaultPassword!) { loginData, errorInfo in
+                    if errorInfo != nil {
+                        isShowAlert = true
+                        alertConetent = errorInfo!
+                    }
                     if loginData != nil {
                         UserDefaults.standard.setValue(loginData!.accessToken, forKey: "token")
                         UserDefaults.standard.setValue(loginData!.nickName, forKey: "nickname")
