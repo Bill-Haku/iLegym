@@ -1,6 +1,18 @@
-#  iLegym
+#  iLegym - 乐健一键跑步签到 - iOS版
 
-## 乐健一键跑步、签到app - iOS版
+## 效果展示
+
+### iOS端
+
+<img src="http://billdc.synology.me:1234/images/2022/04/05/iLegym_iOS_home.png" alt="iLegym_iOS_home.png" style="zoom: 33%;" /><img src="http://billdc.synology.me:1234/images/2022/04/05/iLegym_iOS_login.png" alt="iLegym_iOS_login.png" style="zoom: 33%;" />
+
+### macOS端
+
+
+
+![iLegym_mac_home.png](http://billdc.synology.me:1234/images/2022/04/05/iLegym_mac_home.png)
+
+![iLegym_mac_login.png](http://billdc.synology.me:1234/images/2022/04/05/iLegym_mac_login.png)
 
 ## 系统需求&开发说明
 
@@ -23,7 +35,11 @@
 
 ## 开发状态&最新版本
 
-**预览版已发布**
+**正式版已发布**
+
+- 1.0.0
+
+    适配Mac，修复若干问题
 
 - 0.3.0
 
@@ -45,16 +61,14 @@
 
 ### 待完成功能
 
-- 适配Mac（预计1.0版本上线）
-
-- 上课签到（预计2.0版本上线）
-- 跑步上传（预计3.0版本上线）
+- 上课签到（预计3.0版本上线）
+- 跑步上传（预计2.0版本上线）
 
 ## 安装说明
 
 ### 如何安装移动端版
 
-1. 从[release](https://github.com/Bill-Haku/iLegym/releases)或者其他地方下载本程序的源代码并解压。
+1. 从[release](https://github.com/Bill-Haku/iLegym/releases)或者其他地方下载本程序的**源代码**并解压。
 2. 在Mac上使用Xcode打开iLegym.xcodeproj文件。我使用的版本是macOS Monterey 12.3 (21E230)，Xcode 13.3 (13E113)。
 3. 将你的设备通过有线的方式连接到你的Mac。
 4. 在顶部的target选择iLegym(iOS)，然后在目标设备上选择你的设备。
@@ -63,13 +77,19 @@
 
 ### 如何安装Mac版
 
-Mac版正在开发中。
+1. 从[release](https://github.com/Bill-Haku/iLegym/releases)下载本程序的dmg镜像
+1. 双击打开，将iLegym拖动到Applications文件夹中
+1. 安装完成。现在你可以在你的启动台中找到本程序并运行了
 
 ## 当前版本已知的问题
 
-1. 由于accessToken每天更新一次，在每日的第一次打开App时可能会出现活动列表无法加载出的情况。可行的解决方案是切换到其他标签页后再切回以刷新列表。
+1. 由于accessToken每天更新一次，在每日的第一次打开App时可能会出现活动列表无法加载出的情况。可行的解决方案是刷新列表，如切换到其他标签页后再切回。
 
 ## FAQ
+
+- **为何移动端不能在App Store或TestFlight下载安装？**
+
+    因为如果要在App Store或者TestFlight发布本程序首先需要一个Apple Developer账号，开通这个账号需要支付给Apple每年RMB688的费用。本人无力支付。除此以外，本程序仅作学习用途，不适合发布到App Store。
 
 - 如何判断我的设备是否可以运行本程序？
 
@@ -79,13 +99,9 @@ Mac版正在开发中。
 
     可以。只要你的“黑苹果”安装了较新的macOS和Xcode。
 
-- 为何移动端不能在App Store或TestFlight下载安装？
-
-    因为如果要在App Store或者TestFlight发布本程序首先需要一个Apple Developer账号，开通这个账号需要支付给Apple RMB688元的年费。本人无力支付。除此以外，本程序仅作学习用途，不适合发布到App Store。
-
 ## 开源声明
 
-本仓库是对标本程序的安卓客户端[FuckLegym](https://github.com/Foreverddb/FuckLegym)开发的。但是所有代码均由本人亲自完成。
+本仓库是对标本程序的安卓客户端[FuckLegym](https://github.com/Foreverddb/FuckLegym)开发的。但是所有代码均由本人和本仓库的Contributors完成。
 
 本着开源精神，将源码开放，本仓库遵守GPL3.0开源协议, 任何采用了本仓库代码的必须同样开源且遵守并附带GPL3.0协议。
 
