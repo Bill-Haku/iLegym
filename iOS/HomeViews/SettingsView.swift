@@ -10,6 +10,9 @@ import SwiftUI
 struct SettingsView: View {
     @Binding var hasLogined: Bool
     @Binding var userInfo: UserLoginData?
+
+    let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+    let buildVersion = Bundle.main.infoDictionary!["CFBundleVersion"] as! String
     
     var body: some View {
         NavigationView {
@@ -58,7 +61,7 @@ struct SettingsView: View {
                     }
                     .padding(.horizontal)
                 }
-                Section(header: Text("设置")) {
+                Section(header: Text("设置"), footer: Text("App版本：\(appVersion) (\(buildVersion))\n本程序仅作学习用途，使用后果自负。")) {
                     Button(action: clearAllUserDefaultsData) {
                         Label("退出登录", systemImage: "arrow.left")
                     }
@@ -84,6 +87,7 @@ struct SettingsView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
 
     func clearAllUserDefaultsData() {

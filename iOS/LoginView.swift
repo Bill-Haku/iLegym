@@ -78,7 +78,7 @@ struct LoginView: View {
                         .fontWeight(.bold)
                         .bold()
                         .foregroundColor(.white)
-                        .frame(width: UIScreen.main.bounds.width - 32, height: 44, alignment: .center)
+                        .frame(width: min(UIScreen.main.bounds.width, UIScreen.main.bounds.height) - 32, height: 44, alignment: .center)
                         .background(Color.blue)
                         .cornerRadius(22)
                 }
@@ -113,6 +113,7 @@ struct LoginView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
 }
 

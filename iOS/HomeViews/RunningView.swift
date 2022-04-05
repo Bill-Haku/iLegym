@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RunningView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("开发中\n敬请期待")
     }
 }
 

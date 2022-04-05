@@ -40,6 +40,7 @@ struct DailyActivitiesView: View {
                 .navigationBarTitleDisplayMode(.inline)
             }
         }
+        .navigationViewStyle(.stack)
         .alert(isPresented: $isShowAlert) {
             Alert(title: Text("加载错误"), message: Text(alertContent), dismissButton: .default(Text("好")))
         }

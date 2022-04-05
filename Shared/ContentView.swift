@@ -16,7 +16,7 @@ struct ContentView: View {
             #if os(iOS)
             LoginView(hasLogined: $hasLogined, userInfo: $userInfo)
             RootView(hasLogined: $hasLogined, userInfo: $userInfo)
-                .offset(y: hasLogined ? 0 : 1.2 * WH.H)
+                .offset(y: hasLogined ? 0 : 1.2 * max(WH.H, WH.W))
                 .animation(.default)
             #else
             LoginView()

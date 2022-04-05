@@ -16,7 +16,6 @@ struct RootView: View {
         set: {
             if $0 != self.selection {
                 simpleTaptic(type: .medium)
-                print("taped here!!")
             }
             self.selection = $0
         }
