@@ -16,7 +16,7 @@
 
 ## 系统需求&开发说明
 
-- Universal客户端，支持iPhone，iPad，和Mac
+- Universal App，支持iPhone，iPad，和Mac
 - iOS/iPadOS版本要求：iOS 15.0 / iPadOS 15.0或更高
 - macOS版本要求：macOS Montery 12.0或更高
     - 支持搭载Apple Silicon的Mac和搭载Intel芯片的Mac
@@ -61,8 +61,8 @@
 
 ### 待完成功能
 
-- 上课签到（预计3.0版本上线）
 - 跑步上传（预计2.0版本上线）
+- 上课签到（预计3.0版本上线）
 
 ## 安装说明
 
@@ -70,16 +70,16 @@
 
 1. 从[release](https://github.com/Bill-Haku/iLegym/releases)或者其他地方下载本程序的**源代码**并解压。
 2. 在Mac上使用Xcode打开iLegym.xcodeproj文件。我使用的版本是macOS Monterey 12.3 (21E230)，Xcode 13.3 (13E113)。
-3. 将你的设备通过有线的方式连接到你的Mac。
+3. 将你的设备通过数据线连接到你的Mac。
 4. 在顶部的target选择iLegym(iOS)，然后在目标设备上选择你的设备。
-5. 点击左侧的运行按钮，Xcode会将程序编译并安装到你的设备上。安装后，你可能需要配置证书才能在你的本地设备上运行。
-6. 除此以外，你也可以使用Xcode内置的任意模拟器设备，在你的Mac上的模拟器运行。只需要在第4步中选择你想使用的模拟器设备即可。
+5. 点击左侧的运行按钮，Xcode会将程序编译并安装到你的设备上。编译前，你可能需要配置Developer Team和Bundle ID才能安装。安装后，你可能需要配置证书才能在你的本地设备上运行。
+6. 除此以外，你也可以使用Xcode内置的任意模拟器设备，在你的Mac上的模拟器运行。只需要在第4步中选择你想使用的模拟器设备即可。使用此方法不需要配置Developer Team和证书。
 
 ### 如何安装Mac版
 
-1. 从[release](https://github.com/Bill-Haku/iLegym/releases)下载本程序的dmg镜像
-1. 双击打开，将iLegym拖动到Applications文件夹中
-1. 安装完成。现在你可以在你的启动台中找到本程序并运行了
+1. 从[release](https://github.com/Bill-Haku/iLegym/releases)下载本程序的dmg镜像。
+1. 双击打开，将iLegym拖动到Applications文件夹中。
+1. 安装完成。现在你可以在你的启动台中找到本程序并运行了。
 
 ## 当前版本已知的问题
 
@@ -95,9 +95,13 @@
 
     一个简单的判断方法是，只要更新到了最新的系统，在5年内发布的所有iPhone, iPad, Mac和iPod touch是可以运行本程序的充分条件。具体请见“系统需求&开发说明”小节。如果你愿意，这一套代码仅需要简单的变化也可以移植到Apple Watch或Apple TV上。
 
-- 能否使用“黑苹果”编译安装本程序？
+- 能否使用“黑苹果”编译安装运行本程序？
 
     可以。只要你的“黑苹果”安装了较新的macOS和Xcode。
+    
+- 能否使用虚拟机编译安装运行本程序？
+
+    可以。只要你安装了较新的macOS和Xcode。
 
 ## 开源声明
 
